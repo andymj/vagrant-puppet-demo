@@ -25,7 +25,8 @@ $	puppet module install puppetlabs-mysql
 2.	replace your username on the line: (if modules directory doesn't exist you have to create it).
 puppet.module_path = "/Users/yourusername/.puppet/modules"
 
-you can find the module_path running the following command: $ puppet apply --configprint modulepath
+you can find the module_path running the following command:
+$ puppet apply --configprint modulepath
 
 If you want to create another vhost, in the puppet manifest, copy and paste the vhost resource description, modify it to your needs and remove the require attribute.
 
