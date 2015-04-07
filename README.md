@@ -1,5 +1,5 @@
 # vagrant-puppet-demo
-Short demo using vagrant for virtual machines with puppet as server provisioning with [ubuntu/trusty64](https://atlas.hashicorp.com/ubuntu/boxes/trusty64)
+Basic set up with vagrant for virtual machines and puppet as server provisioning.
 
 ## Install Vagrant.
 
