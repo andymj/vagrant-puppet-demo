@@ -1,24 +1,24 @@
 # vagrant-puppet-demo
 Short demo using vagrant for virtual machines with puppet as server provisioning 
 
-## Install Vagrant
+## Install Vagrant.
 
-https://www.vagrantup.com/downloads.html
+[Download Vagrant](https://www.vagrantup.com/downloads.html)
 
-## Install puppet open source
+## Install puppet open source.
 
 http://docs.puppetlabs.com/guides/install_puppet/pre_install.html
 
-## Install from puppet forge apache and mysql
+## Install from [puppet forge](https://forge.puppetlabs.com/) apache and mysql.
 
 $	puppet module install puppetlabs-apache
+
 $	puppet module install puppetlabs-mysql
 
 
-## Puppet cheat sheet
-https://docs.puppetlabs.com/puppet_core_types_cheatsheet.pdf
+## Puppet [cheat sheet](https://docs.puppetlabs.com/puppet_core_types_cheatsheet.pdf).
 
-## Usage
+## Usage.
 
 1.	Replace "pathtofolder" with the path of your development directory in the vagranfile line: config.vm.synced_folder "~/pathtofolder/", "/var/vagrant_hosts" 
 
