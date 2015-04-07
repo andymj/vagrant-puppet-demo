@@ -2,13 +2,10 @@ class { "apache":
 	mpm_module => 'prefork',
 }
 
-class { "::apache::mod::php":
-	require => Class['apache'],
+class { "::apache::mod::php":	
 }
 
-class {"apache::mod::rewrite":
-	require => Class['::apache::mod::php'],
-}
+apache::mod { 'rewrite': }
 
 Exec {
 	path => ["/usr/bin", "/usr/local/bin"],
@@ -33,14 +30,12 @@ apache::vhost{"local.example.com":
 					allow_override => ['All'],
 					custom_fragment => 'Order allow,deny
 					Allow from all',
-					},],
-	require => Class["apache::mod::rewrite"],
+					},],	
 }
 
 class { '::mysql::server':
   root_password		=> 'root',
-  restart			=> true,
-  require 			=> Class['::apache::mod::php'],
+  restart			=> true,  
 }
 
 class {'mysql::bindings' :
@@ -48,10 +43,9 @@ class {'mysql::bindings' :
     require 			=> Class['::mysql::server'],
 }
 
-include mysql::bindings::php -> Class['::mysql::server']
+include mysql::bindings::php
 
 package { 'php5-curl': 
 	ensure => 'present',
 	require => Class['mysql::bindings'],
 }
-
