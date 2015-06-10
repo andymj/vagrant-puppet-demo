@@ -5,14 +5,10 @@ class { "apache":
 class { "::apache::mod::php":	
 }
 
-apache::mod { 'rewrite': }
+include apache::mod::rewrite
 
 Exec {
 	path => ["/usr/bin", "/usr/local/bin"],
-}
-
-package{'sendmail':
-	ensure => 'present',
 }
 
 exec{ "update":
@@ -36,6 +32,7 @@ apache::vhost{"local.example.com":
 class { '::mysql::server':
   root_password		=> 'root',
   restart			=> true,  
+  require 			=> Class['::apache::mod::php'],
 }
 
 class {'mysql::bindings' :
@@ -46,6 +43,5 @@ class {'mysql::bindings' :
 include mysql::bindings::php
 
 package { 'php5-curl': 
-	ensure => 'present',
-	require => Class['mysql::bindings'],
+	ensure => 'present',	
 }
