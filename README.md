@@ -78,4 +78,4 @@ mysql::db { 'mydb':
     *   user: vagrant
     *   pass: vagrant
 
-If you need to know more about vagrant go to the vagrant website and for provisioning you can use chef, shel scripting, whatever works for you. There it is, good luck. 
+If you need to know more about vagrant go to the vagrant website and for provisioning you can use chef, shell scripting, whatever works for you. There it is, good luck. 
