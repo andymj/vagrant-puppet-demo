@@ -19,9 +19,9 @@ Exec["update"] -> Package <| |>
 
 apache::vhost{"local.example.com":	
 	port 	=> '80',
-	docroot => '/var/vagrant_hosts/vgdemo',
+	docroot => '/var/www/vhosts/vgdemo',
 	directories => [{
-					path => '/var/vagrant_hosts/vgdemo',
+					path => '/var/www/vhosts/vgdemo',
 					options => 'All',										
 					allow_override => ['All'],
 					custom_fragment => 'Order allow,deny
@@ -44,4 +44,11 @@ include mysql::bindings::php
 
 package { 'php5-curl': 
 	ensure => 'present',	
+}
+
+mysql::db { 'mydb':
+	user     => 'myuser',
+	password => 'mypass',
+	host     => 'localhost',
+	grant    => ['ALL'],
 }
