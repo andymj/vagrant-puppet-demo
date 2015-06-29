@@ -63,7 +63,7 @@ mysql::db { 'mydb':
 }
 ```
 ## Run Vagrant
-+   After you followed the above instructtions, open the terminal, go to the root of this repo, and run:
++   After you followed the above instructions, open the terminal, go to the root of this repo, and run:
 `$ vagrant up`
 
 +   if you changed the default.pp file, to provision your enviroment run:
