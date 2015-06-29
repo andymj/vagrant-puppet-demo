@@ -23,12 +23,10 @@ $	puppet module install puppetlabs-mysql
 ```ruby
 config.vm.synced_folder "~/pathtofolder/", "/var/vagrant_hosts" 
 ```
-
 2.	replace your username on the line below: (if modules directory doesn't exist you have to create it<sup>1</sup>).
 ```ruby
 puppet.module_path = "/Users/yourusername/.puppet/modules"
 ```
-
 <sup>1</sup>you can find the module_path running the following command:
 ```bash
 $ puppet apply --configprint modulepath
