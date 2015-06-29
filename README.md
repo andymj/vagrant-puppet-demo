@@ -23,7 +23,7 @@ $	puppet module install puppetlabs-mysql
 ```ruby
 config.vm.synced_folder "~/pathtofolder/", "/var/www/vhosts" 
 ```
-The result will be that your `vhost` folder or any other folder, where you host all your projects will be mapped to `/var/www/vhosts`, how to set up a virtual host for your directory or project is describe below ("Set up puppet manifest file").
+The result will be that your `vhosts` directory or any other directory, where you host all your projects will be mapped to `/var/www/vhosts`, how to set up a virtual host for your directory or project is describe below ("Set up puppet manifest file"), if you have created virtual hosts before, this part shouldn't give you any trouble.
 
 +  replace your username on the line below: (if modules directory doesn't exist you have to create it<sup>1</sup> ).
 ```ruby
@@ -34,7 +34,7 @@ puppet.module_path = "/Users/yourusername/.puppet/modules"
 $ puppet apply --configprint modulepath
 ```
 
-+   (Optional) On the line `config.vm.network "private_network", ip: "192.168.33.10"` change the ip address if you are gonna run a new instance with the same box and the same vagrantfile (or you can use only one environment for all your projects (adding virtual hosts for each one, but I don't recommend it).
++   (Optional) On the line `config.vm.network "private_network", ip: "192.168.33.10"` change the ip address if you are gonna run a new instance with the same box and the same vagrantfile (or you can use only one environment for all your projects (adding virtual hosts for each one).
 
 ## Set up Puppet manifest file.
 +   go to the folder manifests and open default.pp
@@ -69,3 +69,13 @@ mysql::db { 'mydb':
 +   if you changed the default.pp file, to provision your enviroment run:
 `$  vagrant provision`.
 
++   To access the server run `$ ssh vagrant`, user: vagrant, pass: vagrant,
++   To connect to mysql through a db client, use:
+    *   db server: 192.168.33.10 (ip for this configuration)
+    *   db user: root
+    *   db pass: root
+    *   remote server: 192.168.33.10 (ip for this configuration)
+    *   user: vagrant
+    *   pass: vagrant
+
+If you need to know more about vagrant go to the vagrant website and for provisioning you can use chef, shel scripting, whatever works for you. There it is, good luck. 
