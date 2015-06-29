@@ -1,5 +1,5 @@
-# vagrant Ubuntu 14.04 server, provision with puppet. 
-Set up vagrant, run Ubuntu 14.04 server and provision with puppet to install apache, php, mysql and create virtual hosts.
+# Set up LAMP with Vagrant and provision with puppet.
+This document describes how to configure vagrant, to set up a LAMP development environment with Ubuntu server 14.04, you don't have to install manually anything, vagrant can provision the software needed using puppet.
 
 ## Install Vagrant.
 
